@@ -97,16 +97,22 @@ class Money:
         Subtract two money objects of the same currency. If they have different
         currencies, raise a DifferentCurrencyError.
         """
-        pass
+        if self.currency != other.currency:
+            raise DifferentCurrencyError
+        else: 
+            return Money(amount=self.amount-other.amount,currency=self.currency)
+
+       
 
     def mul(self, multiplier):
         """
         Multiply a money object by a number to get a new money object.
         """
-        pass
+        return Money(amount=self.amount*multiplier,currency=self.currency)
+     
 
     def div(self, divisor):
         """
         Divide a money object by a number to get a new money object.
         """
-        pass
+        return Money(amount=self.amount/divisor,currency=self.currency)
